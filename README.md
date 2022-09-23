@@ -20,9 +20,9 @@ npm install
 ```
 Após a instalação das dependências inicie a aplicação com o comando:
 ```
-npm run serve
+npm run dev
 ```
-E a aplicação já estará funcionando na porta <a href="http://localhost:8080">http://localhost:8080</a>
+E a aplicação já estará funcionando na porta <a href="http://localhost:5173/">http://localhost:5173/</a>
 
 ## 🛠️ Tecnologias utilizadas #
 

@@ -1,9 +1,7 @@
+<script setup>
+import BooksView from '@/views/BooksView.vue'
+</script>
+
 <template>
-  <div>
-    <router-view/>
-  </div>
+  <BooksView />
 </template>
-
-<style>
-
-</style>

@@ -1,0 +1,14 @@
+// Inves de alterar, criar novos temas e manter os padrões boostrap
+$theme-colors: (
+  "primary":    #222831,
+  "secondary":  #393E46,
+  "success":    #198754,
+  "info":       #00ADB5,
+  "warning":    #ffc107,
+  "danger":     #dc3545,
+  "light":      #EEEEEE,
+  "dark":       #000,
+  "abestado": #ff06f3
+  );
+
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss'

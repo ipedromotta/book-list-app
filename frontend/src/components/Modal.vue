@@ -28,7 +28,7 @@
           </div>
           <div class="modal-footer">
             <button @click="bookStore.edit = false; bookStore.initForm()" ref="closeModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            <button type="submit" class="btn btn-primary">Salvar mudanças</button>
+            <button type="submit" class="btn btn-info">Salvar mudanças</button>
           </div>
         </form>
       </div>

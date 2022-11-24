@@ -2,19 +2,21 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 from Model.BookModel import BookModel
-from Controller.ConnectionDBController import ConnectionDBController
+from Database.ConnectionDatabase import ConnectionDatabase
 
 app = Flask(__name__)
 app.config.from_object(__name__)
 
 CORS(app, resources={r'/*': {'origins': '*'}})
 
-conn = ConnectionDBController.get_connection()
-conn.row_factory = ConnectionDBController.dict_factory
+conn = ConnectionDatabase.get_connection()
+conn.row_factory = ConnectionDatabase.dict_factory
 
-@app.route('/', methods=['GET'])
+
+@app.route('/health', methods=['GET'])
 def index():
-    return jsonify("Servidor esta rodando...")
+    return jsonify({"status": "healthy"})
+
 
 @app.route('/books', methods=['GET', 'POST'])
 def all_books():

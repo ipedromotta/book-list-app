@@ -3,11 +3,12 @@ import { defineStore } from 'pinia'
 import axios from 'axios';
 
 export const useBookStore = defineStore('books', () => {
-  const path = 'http://localhost:5000/books'
+  const path = import.meta.env.VITE_BACKEND
   const books = ref([])
   const message = ref('')
   const showMessage = ref(false)
   const edit = ref(false)
+
   const editForm = ref({
     ID_BOOK: '',
     TITLE: '',
@@ -20,8 +21,11 @@ export const useBookStore = defineStore('books', () => {
     READ: false
   })
 
+  
   function getBooks() {
-    axios.get(path)
+    var url = `${path}`
+    
+    axios.get(url)
       .then((res) => {
         books.value = res.data.payload
       })
@@ -31,7 +35,9 @@ export const useBookStore = defineStore('books', () => {
   }
 
   function addBook(payload) {
-    axios.post(path, payload)
+    var url = `${path}`
+    console.log(payload)
+    axios.post(url, payload)
       .then((res) => {
         getBooks();
         showMessageFunc(res.data.message)
@@ -44,8 +50,8 @@ export const useBookStore = defineStore('books', () => {
   }
 
   function updateBook(payload, bookID) {
-    const path = `http://localhost:5000/books/${bookID}`
-    axios.put(path, payload)
+    var url = `${path}/${bookID}`
+    axios.put(url, payload)
       .then((res) => {
         getBooks()
         showMessageFunc(res.data.message)
@@ -57,8 +63,8 @@ export const useBookStore = defineStore('books', () => {
   }
 
   function deleteBook(closeModal) {
-    const path = `http://localhost:5000/books/${editForm.value.ID_BOOK}`
-    axios.delete(path)
+    var url = `${path}/${editForm.value.ID_BOOK}`
+    axios.delete(url)
       .then((res) => {
         getBooks()
         showMessageFunc(res.data.message)

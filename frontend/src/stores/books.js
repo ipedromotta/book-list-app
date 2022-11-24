@@ -8,6 +8,7 @@ export const useBookStore = defineStore('books', () => {
   const message = ref('')
   const showMessage = ref(false)
   const edit = ref(false)
+
   const editForm = ref({
     ID_BOOK: '',
     TITLE: '',
@@ -20,8 +21,10 @@ export const useBookStore = defineStore('books', () => {
     READ: false
   })
 
+  
   function getBooks() {
     var url = `${path}`
+    
     axios.get(url)
       .then((res) => {
         books.value = res.data.payload

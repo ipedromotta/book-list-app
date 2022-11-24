@@ -14,4 +14,5 @@ RUN pip install -r requirements.txt
 COPY . /app
 
 # configure the container to run in an executed manner
-ENTRYPOINT [ "python" , "app.py"]
+# ENTRYPOINT [ "python" , "app.py"]
+ENTRYPOINT ["flask", "run", "--host=0.0.0.0", "--port=5000"]

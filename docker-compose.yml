@@ -1,0 +1,22 @@
+version: '3'
+services:
+      
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    networks:
+      - vue-and-flask
+
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    networks:
+      - vue-and-flask
+
+
+networks:
+  vue-and-flask:
+    driver: bridge

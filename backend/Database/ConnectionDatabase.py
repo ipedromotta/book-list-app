@@ -1,6 +1,6 @@
 import sqlite3
 
-class ConnectionDBController():
+class ConnectionDatabase():
 
     @staticmethod
     def get_connection():

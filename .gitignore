@@ -2,6 +2,10 @@
 **/__pycache__/
 **/build/
 *.log
+**/env/
+**/venv/
+env/
+venv/ 
 
 ### VueJS Ignore ###
 **/.DS_Store

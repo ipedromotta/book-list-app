@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import axios from 'axios';
 
 export const useBookStore = defineStore('books', () => {
-  const path = 'http://localhost:5000/books'
+  const path = import.meta.env.VITE_BACKEND
   const books = ref([])
   const message = ref('')
   const showMessage = ref(false)
@@ -44,7 +44,8 @@ export const useBookStore = defineStore('books', () => {
   }
 
   function updateBook(payload, bookID) {
-    const path = `http://localhost:5000/books/${bookID}`
+    console.log(import.meta.env.VITE_BACKEND)
+    const path = `${path}/${bookID}`
     axios.put(path, payload)
       .then((res) => {
         getBooks()

@@ -1,29 +1,37 @@
-# Book list app
+## Configurações do projeto
 
-This template should help get you started developing with Vue 3 in Vite.
+### Execução local
+Para rodar o frontend localmente, siga os passos abaixo:
+1. Instale as dependências: Navegue até o diretório frontend e execute o comando abaixo para instalar as dependências necessárias:
+    ```
+    npm install
+    ```
 
-## Recommended IDE Setup
+2. Inicie a aplicação: Após a instalação, execute o comando abaixo:
+    -  Para iniciar a aplicação em modo de desenvolvimento (Hot-Reload):
+        ```
+        npm run dev
+        ```
+    - Para compilar e minificar para produção:
+        ```
+        npm run build
+        ```
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+A aplicação estará disponível em http://localhost:5173/ e você pode acessá-la pelo navegador.
 
-## Customize configuration
+### Execução em docker
+Para rodar o frontend usando Docker, basta seguir os passos abaixo:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+1. Construa a imagem Docker: No diretório frontend, onde o Dockerfile está localizado, execute o comando para construir a imagem:
+    ```
+    docker build -t frontend .
+    ```
 
-## Project Setup
+2. Execute o container: Após a imagem ser criada, execute o container com o comando abaixo. Isso irá rodar o frontend em um container e mapear a porta local para o container:
+    ```
+    docker run -p 5173:5173 frontend
+    ```
 
-```sh
-npm install
-```
+A aplicação estará disponível na URL http://localhost:5173/.
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+Nota: Certifique-se de ter o Docker instalado e funcionando corretamente antes de executar esses comandos.

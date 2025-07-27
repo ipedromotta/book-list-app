@@ -3,26 +3,19 @@
 </h1>
 
 ## :page_facing_up: Sobre #
-Este projeto é um aplicativo FullStack para ajudar no controle de livros que já foram lidos ou tem objetivo de ler.
+Este é um aplicativo FullStack que visa ajudar usuários a gerenciar livros. Ele permite que você registre os livros que já leu ou os que deseja ler no futuro.
+
+Com uma interface simples e intuitiva, a aplicação é dividida entre um backend em Flask e um frontend em VueJS. O backend lida com as requisições e o gerenciamento de dados, enquanto o frontend oferece uma experiência interativa para os usuários.
 
 ### Configuração do projeto
-Para este projeto funcionar certifique-se de ter o Python e NodeJS instalados na sua maquina.
+1. Antes de começar, certifique-se de ter as seguintes tecnologias instaladas na sua máquina:
+    - Python 3.x (para o backend)
+    - Node.js (para o frontend)
 
-Para iniciar o backend é necessário fazer a instalação das dependências. Dentro do diretório backend execute o comando:
-```
-pip install -r requirements.txt
-```
-Após a instalação das dependências basta executar o arquivo ```app.py``` e a API já estará rodando na porta <a href="http://localhost:5000/books">http://localhost:5000/books</a>
+2. Os detalhes para rodar tanto o backend quanto o frontend estão explicados nos respectivos READMEs dentro das pastas backend e frontend
+    - Backend: Siga as instruções no README do backend para configurar o ambiente e rodar a aplicação.
 
-Para iniciar o frontend também é necessário fazer a instalação das dependências. Dentro do diretório frontend execute o comando:
-```
-npm install
-```
-Após a instalação das dependências inicie a aplicação com o comando:
-```
-npm run dev
-```
-E a aplicação já estará funcionando na porta <a href="http://localhost:5173/">http://localhost:5173/</a>
+    - Frontend: Siga as instruções no README do frontend para configurar e rodar a interface.
 
 ## 🛠️ Tecnologias utilizadas #
 
@@ -31,3 +24,10 @@ Para o desenvolvimento desse projeto foram utilizadas as seguintes tecnologias:
 * Flask;
 * VueJS;
 * Bootstrap.
+
+## 📚 Como Contribuir #
+Se você deseja contribuir com o projeto, fique à vontade! Para isso, basta seguir esses passos:
+1. Faça um fork deste repositório.
+2. Crie uma nova branch para suas alterações.
+3. Realize suas modificações e faça commit.
+4. Envie um pull request com uma descrição clara do que foi modificado.

@@ -14,7 +14,7 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     """Configurações específicas para testes"""
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///meubanco_test.db'  # Banco de dados de teste
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///database_test.db'  # Banco de dados de teste
 
 class ProductionConfig(Config):
     """Configurações específicas para produção"""

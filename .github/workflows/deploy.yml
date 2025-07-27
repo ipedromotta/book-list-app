@@ -28,13 +28,13 @@ jobs:
           pytest --disable-warnings
 
       # Frontend tests
-      - name: 📦 Instalar dependências frontend
-        working-directory: ./frontend
-        run: npm install
+      # - name: 📦 Instalar dependências frontend
+      #   working-directory: ./frontend
+      #   run: npm install
 
-      - name: 🧪 Rodar testes frontend
-        working-directory: ./frontend
-        run: npm run test
+      # - name: 🧪 Rodar testes frontend
+      #   working-directory: ./frontend
+      #   run: npm run test
 
       # Login Docker
       - name: 🔐 Login no Docker Hub

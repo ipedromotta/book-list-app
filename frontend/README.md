@@ -29,9 +29,9 @@ Para rodar o frontend usando Docker, basta seguir os passos abaixo:
 
 2. Execute o container: Após a imagem ser criada, execute o container com o comando abaixo. Isso irá rodar o frontend em um container e mapear a porta local para o container:
     ```
-    docker run -p 5173:5173 frontend
+    docker run -p 8080:80 frontend
     ```
 
-A aplicação estará disponível na URL http://localhost:5173/.
+A aplicação estará disponível na URL http://localhost:8080/.
 
 Nota: Certifique-se de ter o Docker instalado e funcionando corretamente antes de executar esses comandos.

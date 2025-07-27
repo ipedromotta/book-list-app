@@ -7,15 +7,15 @@ Este é um aplicativo FullStack que visa ajudar usuários a gerenciar livros. El
 
 Com uma interface simples e intuitiva, a aplicação é dividida entre um backend em Flask e um frontend em VueJS. O backend lida com as requisições e o gerenciamento de dados, enquanto o frontend oferece uma experiência interativa para os usuários.
 
-### Configuração do projeto
+## ⚙️ Configuração do projeto #
 1. Antes de começar, certifique-se de ter as seguintes tecnologias instaladas na sua máquina:
     - Python 3.x (para o backend)
     - Node.js (para o frontend)
 
 2. Os detalhes para rodar tanto o backend quanto o frontend estão explicados nos respectivos READMEs dentro das pastas backend e frontend
-    - Backend: Siga as instruções no README do backend para configurar o ambiente e rodar a aplicação.
+    - Backend: Siga as instruções no <a href="https://github.com/ipedromotta/book-list-app/blob/main/backend/README.md">README do backend</a> para configurar o ambiente e rodar a aplicação.
 
-    - Frontend: Siga as instruções no README do frontend para configurar e rodar a interface.
+    - Frontend: Siga as instruções no <a href="https://github.com/ipedromotta/book-list-app/blob/main/frontend/README.md">README do frontend</a> para configurar e rodar a interface.
 
 ## 🛠️ Tecnologias utilizadas #
 

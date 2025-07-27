@@ -23,6 +23,7 @@ jobs:
       - name: 🧪 Rodar testes backend
         working-directory: ./backend
         run: |
+          export PYTHONPATH=$GITHUB_WORKSPACE/backend
           source venv/bin/activate
           pytest --disable-warnings
 

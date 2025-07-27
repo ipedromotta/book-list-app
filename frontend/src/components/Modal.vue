@@ -11,17 +11,17 @@
         <form @submit="bookStore.onSubmit($event, $refs.closeModal)">
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Titulo</label>
-            <input v-if="bookStore.edit" v-model="bookStore.editForm.TITLE" type="text" class="form-control" id="exampleFormControlInput1" required placeholder="Coloque o titulo">
-            <input v-else v-model="bookStore.bookForm.TITLE" type="text" class="form-control" id="exampleFormControlInput1" required placeholder="Coloque o titulo">
+            <input v-if="bookStore.edit" v-model="bookStore.editForm.title" type="text" class="form-control" id="exampleFormControlInput1" required placeholder="Coloque o titulo">
+            <input v-else v-model="bookStore.bookForm.title" type="text" class="form-control" id="exampleFormControlInput1" required placeholder="Coloque o titulo">
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Autor</label>
-            <input v-if="bookStore.edit" v-model="bookStore.editForm.AUTHOR" type="text" class="form-control" id="exampleFormControlInput1" required placeholder="Coloque o autor">
-            <input v-else v-model="bookStore.bookForm.AUTHOR" type="text" class="form-control" id="exampleFormControlInput1" required placeholder="Coloque o autor">
+            <input v-if="bookStore.edit" v-model="bookStore.editForm.author" type="text" class="form-control" id="exampleFormControlInput1" required placeholder="Coloque o autor">
+            <input v-else v-model="bookStore.bookForm.author" type="text" class="form-control" id="exampleFormControlInput1" required placeholder="Coloque o autor">
           </div>
           <div class="form-check">
-            <input v-if="bookStore.edit" v-model="bookStore.editForm.READ" class="form-check-input" type="checkbox" id="flexCheckDefault">
-            <input v-else class="form-check-input" type="checkbox" id="flexCheckDefault" v-model="bookStore.bookForm.READ">
+            <input v-if="bookStore.edit" v-model="bookStore.editForm.read" class="form-check-input" type="checkbox" id="flexCheckDefault">
+            <input v-else class="form-check-input" type="checkbox" id="flexCheckDefault" v-model="bookStore.bookForm.read">
             <label class="form-check-label" for="flexCheckDefault">
               Lido?
             </label>

@@ -25,10 +25,10 @@
         </thead>
         <tbody>
           <tr v-for="(book, index) in bookStore.books" :key="index">
-            <td>{{ book.TITLE }}</td>
-            <td>{{ book.AUTHOR }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
             <td>
-              <span v-if="book.READ">Sim</span>
+              <span v-if="book.read">Sim</span>
               <span v-else>Não</span>
             </td>
             <td>
@@ -64,10 +64,10 @@
   function editBook(book){
     bookStore.edit = true
     bookStore.editForm = book
-    if (bookStore.editForm.READ == 1) {
-      bookStore.editForm.READ = true
+    if (bookStore.editForm.read == 1) {
+      bookStore.editForm.read = true
     } else {
-      bookStore.editForm.READ = false
+      bookStore.editForm.read = false
     }
   }
   

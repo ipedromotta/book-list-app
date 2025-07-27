@@ -9,21 +9,21 @@ export const useBookStore = defineStore('books', () => {
   const showMessage = ref(false)
   const edit = ref(false)
   const editForm = ref({
-    ID_BOOK: '',
-    TITLE: '',
-    AUTHOR: '',
-    READ: false
+    id: '',
+    title: '',
+    author: '',
+    read: false
   })
   const bookForm = ref({
-    TITLE: '',
-    AUTHOR: '',
-    READ: false
+    title: '',
+    author: '',
+    read: false
   })
 
   function getBooks() {
     axios.get(path)
       .then((res) => {
-        books.value = res.data.payload
+        books.value = res.data
       })
       .catch((error) => {
         console.log(error)
@@ -57,7 +57,7 @@ export const useBookStore = defineStore('books', () => {
   }
 
   function deleteBook(closeModal) {
-    const path = `http://localhost:5000/books/${editForm.value.ID_BOOK}`
+    const path = `http://localhost:5000/books/${editForm.value.id}`
     axios.delete(path)
       .then((res) => {
         getBooks()
@@ -75,17 +75,16 @@ export const useBookStore = defineStore('books', () => {
 
     if (edit.value === true) {
       const payload = {
-        id: editForm.value.ID_BOOK,
-        title: editForm.value.TITLE,
-        author: editForm.value.AUTHOR,
-        read: editForm.value.READ
+        title: editForm.value.title,
+        author: editForm.value.author,
+        read: editForm.value.read
       }
-      updateBook(payload, editForm.value.ID_BOOK)
+      updateBook(payload, editForm.value.id)
     } else {
       const payload = {
-        title: bookForm.value.TITLE,
-        author: bookForm.value.AUTHOR,
-        read: bookForm.value.READ
+        title: bookForm.value.title,
+        author: bookForm.value.author,
+        read: bookForm.value.read
       }
       addBook(payload)
     }
@@ -93,9 +92,9 @@ export const useBookStore = defineStore('books', () => {
   }
 
   function initForm() {
-    bookForm.value.AUTHOR = ''
-    bookForm.value.TITLE = ''
-    bookForm.value.READ = undefined
+    bookForm.value.author = ''
+    bookForm.value.title = ''
+    bookForm.value.read = undefined
   }
 
   function showMessageFunc(msg) {

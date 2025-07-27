@@ -1,10 +1,11 @@
-from datetime import datetime
 from uuid import uuid4
-from Controller.ResponseController import ResponseController
-from Model.Enum.RequestEnum import RequestEnum
+from datetime import datetime
+from http import HTTPStatus
+
+from models.response import Response
 
 
-class BookModel:
+class Book:
     
     @staticmethod
     def get_book(id_book, conn):
@@ -15,11 +16,11 @@ class BookModel:
             row = cursor.fetchone()
             cursor.close()
             if row:
-                return ResponseController.get_response(RequestEnum.OK.value, row, "Sucesso")
+                return Response.get_response(HTTPStatus.OK.value, row, "Sucesso")
             else:
-                return ResponseController.get_response(RequestEnum.NOT_FOUND.value, list(), "Nenhum registro encontrado")
+                return Response.get_response(HTTPStatus.NOT_FOUND.value, list(), "Nenhum registro encontrado")
         except Exception as ex:
-            return ResponseController.get_response(RequestEnum.BAD_REQUEST.value, list(), f"Erro ao obter registro: {ex}")
+            return Response.get_response(HTTPStatus.BAD_REQUEST.value, list(), f"Erro ao obter registro: {ex}")
         
     @staticmethod
     def get_all_books(conn):
@@ -31,11 +32,11 @@ class BookModel:
             cursor.close()
             
             if rows:
-                return ResponseController.get_response(RequestEnum.OK.value, rows, "Sucesso")
+                return Response.get_response(HTTPStatus.OK.value, rows, "Sucesso")
             else:
-                return ResponseController.get_response(RequestEnum.NOT_FOUND.value, list(), "Nenhum registro encontrado")
+                return Response.get_response(HTTPStatus.NOT_FOUND.value, list(), "Nenhum registro encontrado")
         except Exception as ex:
-            return ResponseController.get_response(RequestEnum.INTERNAL_ERROR.value, list(), f"Erro ao obter registro: {ex}")
+            return Response.get_response(HTTPStatus.INTERNAL_SERVER_ERROR.value, list(), f"Erro ao obter registro: {ex}")
         
     @staticmethod
     def insert_book(book, conn):
@@ -51,9 +52,9 @@ class BookModel:
             last_insert = BookModel.get_book(last_insert["ID_BOOK"], conn)
             cursor.close()
             
-            return ResponseController.get_response(RequestEnum.CREATED.value, last_insert["payload"], "Livro adicionado!")
+            return Response.get_response(HTTPStatus.CREATED.value, last_insert["payload"], "Livro adicionado!")
         except Exception as ex:
-            return ResponseController.get_response(RequestEnum.INTERNAL_ERROR.value, list(), f"Erro ao cadastrar livro: {ex}")
+            return Response.get_response(HTTPStatus.INTERNAL_SERVER_ERROR.value, list(), f"Erro ao cadastrar livro: {ex}")
         
     @staticmethod
     def update_book(book, conn):
@@ -65,16 +66,16 @@ class BookModel:
             cursor.close()
             book_updated = BookModel.get_book(book['id'], conn)
             
-            return ResponseController.get_response(RequestEnum.OK.value, book_updated["payload"], "Livro atualizado!")
+            return Response.get_response(HTTPStatus.OK.value, book_updated["payload"], "Livro atualizado!")
         except Exception as ex:
-            return ResponseController.get_response(RequestEnum.INTERNAL_ERROR.value, list(), f"Erro ao atualizar: {ex}")
+            return Response.get_response(HTTPStatus.INTERNAL_SERVER_ERROR.value, list(), f"Erro ao atualizar: {ex}")
         
     @staticmethod
     def delete_book(id_book, conn):
         try:
             book_for_delete = BookModel.get_book(id_book, conn)
-            if book_for_delete["status"] == RequestEnum.NOT_FOUND.value:
-                return ResponseController.get_response(RequestEnum.NOT_FOUND.value, list(), "Nenhum registro encontrado")
+            if book_for_delete["status"] == HTTPStatus.NOT_FOUND.value:
+                return Response.get_response(HTTPStatus.NOT_FOUND.value, list(), "Nenhum registro encontrado")
             
             query = f"DELETE FROM BOOKS WHERE ID_BOOK = '{id_book}'"
             cursor = conn.cursor()
@@ -82,8 +83,8 @@ class BookModel:
             conn.commit()
             cursor.close()
 
-            return ResponseController.get_response(RequestEnum.OK.value, book_for_delete["payload"], "Livro deletado!")
+            return Response.get_response(HTTPStatus.OK.value, book_for_delete["payload"], "Livro deletado!")
         except Exception as ex:
-            return ResponseController.get_response(RequestEnum.INTERNAL_ERROR.value, list(), f"Erro ao deletar livro: {ex}")
+            return Response.get_response(HTTPStatus.INTERNAL_SERVER_ERROR.value, list(), f"Erro ao deletar livro: {ex}")
         
         

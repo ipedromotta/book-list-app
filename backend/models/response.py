@@ -1,4 +1,4 @@
-class ResponseController:
+class Response:
     
     @staticmethod
     def get_response(status, payload, message=False):
@@ -13,4 +13,5 @@ class ResponseController:
         except:
             body = {}
             
-        return body
+        finally:
+            return body

@@ -1,6 +1,6 @@
-## Configurações do projeto
+# Configurações do projeto
 
-### Execução local
+## Execução local
 Para rodar o frontend localmente, siga os passos abaixo:
 1. Instale as dependências: Navegue até o diretório frontend e execute o comando abaixo para instalar as dependências necessárias:
     ```
@@ -19,7 +19,7 @@ Para rodar o frontend localmente, siga os passos abaixo:
 
 A aplicação estará disponível em http://localhost:5173/ e você pode acessá-la pelo navegador.
 
-### Execução em docker
+## Execução em docker
 Para rodar o frontend usando Docker, basta seguir os passos abaixo:
 
 1. Construa a imagem Docker: No diretório frontend, onde o Dockerfile está localizado, execute o comando para construir a imagem:

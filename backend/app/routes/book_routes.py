@@ -63,7 +63,9 @@ def create_book():
         db.session.add(book)
         db.session.commit()
 
-        return jsonify(book.to_dict()), HTTPStatus.CREATED
+        obj = book.to_dict()
+        obj['message'] = 'Livro criado com sucesso.'
+        return jsonify(obj), HTTPStatus.CREATED
 
     except SQLAlchemyError as e:
         db.session.rollback()
@@ -108,7 +110,9 @@ def update_book(book_id):
         
             db.session.commit()
 
-            return jsonify(book.to_dict()), HTTPStatus.OK
+            obj = book.to_dict()
+            obj['message'] = 'Livro atualizado com sucesso.'
+            return jsonify(obj), HTTPStatus.OK
         
         except SQLAlchemyError:
             db.session.rollback()

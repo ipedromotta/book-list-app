@@ -1,6 +1,6 @@
-## Configurações do projeto
+# Configurações do projeto
 
-### Execução local
+## Execução local
 Para rodar o backend localmente, siga os passos abaixo:
 
 1. Instale as dependências: Navegue até o diretório backend e execute o comando abaixo para instalar as dependências necessárias:
@@ -11,7 +11,7 @@ Para rodar o backend localmente, siga os passos abaixo:
 
 Pronto! Agora você pode acessar a API no seu navegador ou via ferramentas como Postman ou curl. A URL de acesso será http://localhost:5000/books.
 
-### Execução em docker
+## Execução em docker
 Para rodar o backend usando Docker, basta seguir os passos abaixo:
 
 1. Construa a imagem Docker: No diretório raiz do projeto, onde o Dockerfile está localizado, execute o comando para construir a imagem:

@@ -1,0 +1,54 @@
+name: CI/CD Docker Build and Push
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔍 Checkout código
+        uses: actions/checkout@v3
+
+      # Backend tests
+      - name: 📦 Instalar dependências backend
+        working-directory: ./backend
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+
+      - name: 🧪 Rodar testes backend
+        working-directory: ./backend
+        run: |
+          source venv/bin/activate
+          pytest --disable-warnings
+
+      # Frontend tests
+      - name: 📦 Instalar dependências frontend
+        working-directory: ./frontend
+        run: npm install
+
+      - name: 🧪 Rodar testes frontend
+        working-directory: ./frontend
+        run: npm run test
+
+      # Login Docker
+      - name: 🔐 Login no Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # Docker build/push
+      - name: 🐳 Build e push - backend
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/meu-backend:latest ./backend
+          docker push ${{ secrets.DOCKER_USERNAME }}/meu-backend:latest
+
+      - name: 🐳 Build e push - frontend
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/meu-frontend:latest ./frontend
+          docker push ${{ secrets.DOCKER_USERNAME }}/meu-frontend:latest

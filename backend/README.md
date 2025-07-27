@@ -7,7 +7,7 @@ Para rodar o backend localmente, siga os passos abaixo:
     ```
     pip install -r requirements.txt
     ```
-2. Inicie o servidor: Após a instalação, execute o arquivo app.py para iniciar a API. Por padrão, a API estará disponível em http://localhost:5000/books.
+2. Inicie o servidor: Após a instalação, execute o arquivo run.py para iniciar a API. Por padrão, a API estará disponível em http://localhost:5000/books.
 
 Pronto! Agora você pode acessar a API no seu navegador ou via ferramentas como Postman ou curl. A URL de acesso será http://localhost:5000/books.
 

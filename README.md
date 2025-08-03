@@ -5,7 +5,7 @@
 ## :page_facing_up: Sobre #
 Este é um aplicativo FullStack que visa ajudar usuários a gerenciar livros. Ele permite que você registre os livros que já leu ou os que deseja ler no futuro.
 
-Com uma interface simples e intuitiva, a aplicação é dividida entre um backend em Flask e um frontend em VueJS. O backend lida com as requisições e o gerenciamento de dados, enquanto o frontend oferece uma experiência interativa para os usuários.
+Com uma interface simples e intuitiva, a aplicação é dividida entre um backend em Flask e um frontend em Vue.js. O backend lida com as requisições e o gerenciamento de dados, enquanto o frontend oferece uma experiência interativa para os usuários.
 
 ## ⚙️ Configuração do projeto #
 1. Antes de começar, certifique-se de ter as seguintes tecnologias instaladas na sua máquina:
@@ -22,7 +22,7 @@ Com uma interface simples e intuitiva, a aplicação é dividida entre um backen
 Para o desenvolvimento desse projeto foram utilizadas as seguintes tecnologias:
 
 * Flask;
-* VueJS;
+* Vue.js;
 * Bootstrap.
 
 ## 📚 Como Contribuir #
